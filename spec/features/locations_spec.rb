@@ -19,5 +19,11 @@ feature 'homepage' do
     expect(page).to have_content 'Cuba'
   end
 
-  scenario 'user can remove a destination from the list'
+  scenario 'user can remove a destination from the list' do
+    create_location
+    visit root_path
+    click_on 'Cuba'
+    click_on 'Delete this destination'
+    expect(page).to_not have_content 'Cuba'
+  end
 end
