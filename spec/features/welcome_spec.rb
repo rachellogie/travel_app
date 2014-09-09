@@ -7,14 +7,4 @@ feature 'homepage' do
     expect(page).to have_content 'Travel App'
   end
 
-  scenario 'user can add a desired destination' do
-    visit root_path
-    click_on 'Add desired destination'
-    fill_in 'Country', with: 'Cuba'
-    click_on 'Add'
-    within('.desired') do
-      expect(page).to have_content 'Cuba'
-    end
-  end
-
 end
