@@ -1,1 +1,16 @@
 <h1>Travel App</h1>
+
+<h3>Places I want to visit:</h3>
+
+<div class="desired">
+  <ul>
+    <% @locations.each do |location| %>
+      <li><%= location.country %></li>
+    <% end %>
+  </ul>
+
+
+  <%= link_to 'Add desired destination', new_location_path %>
+</div>
+
+
