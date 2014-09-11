@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $('.visited ul').append("<li><%= escape_javascript(@location.country) %></li>");
+  $('.visited ul').append("<li><%= escape_javascript(link_to @location.country, location_path(@location)) %></li>");
   $(".desired li[class=<%= @location.country %>").remove();
 
 });

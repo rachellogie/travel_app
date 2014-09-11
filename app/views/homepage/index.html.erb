@@ -1,8 +1,6 @@
-<h1>Travel App</h1>
 
-<h3>Places I want to visit:</h3>
-
-<div class="desired">
+<div class="desired col-md-4 col-md-offset-2">
+  <h3>Places I want to visit:</h3>
   <ul>
     <% @locations.each do |location| %>
       <% unless location.visited %>
@@ -10,15 +8,12 @@
       <% end %>
     <% end %>
   </ul>
-
-
   <%= link_to 'Add desired destination', new_location_path %>
 </div>
 
 
-<h3>Places I have visited:</h3>
-
-<div class="visited">
+<div class="visited col-md-4">
+  <h3>Places I have visited:</h3>
   <ul>
     <% @locations.each do |location| %>
       <% if location.visited %>
