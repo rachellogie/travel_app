@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'homepage' do
+feature 'locations' do
 
   scenario 'user can add a desired destination' do
     visit root_path
@@ -25,5 +25,17 @@ feature 'homepage' do
     click_on 'Cuba'
     click_on 'Delete this destination'
     expect(page).to_not have_content 'Cuba'
+  end
+
+  scenario 'user can mark a destination as visited and they will see it under the visited column' do
+    create_location
+    visit root_path
+    click_on 'Mark as visited'
+    within('.visited') do
+      expect(page).to have_content 'Cuba'
+    end
+    within('.desired') do
+      expect(page).to_not have_content 'Cuba'
+    end
   end
 end

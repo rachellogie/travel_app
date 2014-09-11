@@ -17,6 +17,15 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
   end
 
+  def update
+    @location = Location.find(params[:id])
+    @location.update(visited: true)
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js {}
+    end
+  end
+
   def destroy
     Location.destroy(Location.find(params[:id]))
     redirect_to root_path

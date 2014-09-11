@@ -1,0 +1,7 @@
+$(document).ready(function () {
+
+  $('.visited ul').append("<li><%= escape_javascript(@location.country) %></li>");
+  $(".desired li[class=<%= @location.country %>").remove();
+
+});
+
