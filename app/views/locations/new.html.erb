@@ -3,7 +3,7 @@
 <%= form_for @location do |f| %>
 
   <%= f.label :country %>
-  <%= f.text_field :country %>
+  <%= f.autocomplete_field :country, autocomplete_country_name_locations_path %>
 
   <%= f.submit 'Add'%>
 

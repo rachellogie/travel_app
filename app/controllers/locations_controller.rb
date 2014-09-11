@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
 
+  autocomplete :country, :name, :full => true
+
   def new
     @location = Location.new
   end

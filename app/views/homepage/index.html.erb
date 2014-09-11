@@ -4,11 +4,11 @@
   <ul>
     <% @locations.each do |location| %>
       <% unless location.visited %>
-        <li class="<%= location.country %>"><%= link_to location.country, location_path(location) %>   <%= link_to 'Mark as visited', location_path(location), :method => :put, :remote => :true %></li>
+        <li class="<%= location.country %>"><%= link_to location.country, location_path(location) %>   <%= link_to 'Mark as visited', location_path(location), :method => :put, :remote => :true, class: 'btn btn-default btn-xs' %></li>
       <% end %>
     <% end %>
   </ul>
-  <%= link_to 'Add desired destination', new_location_path %>
+  <%= link_to 'Add desired destination', new_location_path, class: 'btn btn-primary' %>
 </div>
 
 
