@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.4.1'
+  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 group :test do
@@ -38,6 +39,7 @@ gem 'devise', '~> 3.3.0'
 
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2', '~> 0.2.5'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
