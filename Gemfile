@@ -40,7 +40,7 @@ gem 'devise', '~> 3.3.0'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2', '~> 0.2.5'
 
-
+gem 'rails_12factor', '~> 0.0.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
