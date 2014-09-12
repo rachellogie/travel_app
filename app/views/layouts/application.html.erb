@@ -11,6 +11,12 @@
 <div class="container">
   <header>
     <h1 class="logo">Travel App</h1>
+    <nav>
+      <ul>
+        <li><%= link_to 'Register', new_user_registration_path %></li>
+      </ul>
+    </nav>
+    <div><%= flash[:notice] %></div>
   </header>
   <%= yield %>
 </div>
