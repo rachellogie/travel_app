@@ -36,6 +36,9 @@ gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'rails4-autocomplete', '~> 1.1.1'
 gem 'devise', '~> 3.3.0'
 
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2', '~> 0.2.5'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
