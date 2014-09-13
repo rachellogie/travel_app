@@ -2,22 +2,22 @@
 <div class="desired col-md-4 col-md-offset-2">
   <h3>Places I want to go:</h3>
   <ul>
-    <% @locations.each do |location| %>
-      <% unless location.visited %>
-        <li class="<%= location.country %>"><%= link_to location.country, location_path(location) %>   <%= link_to 'Mark as visited', location_path(location), :method => :put, :remote => :true, class: 'btn btn-default btn-xs' %></li>
+    <% @trips.each do |trip| %>
+      <% unless trip.visited %>
+        <li class="<%= trip.name %>"><%= link_to trip.name, trip_path(trip) %>   <%= link_to 'Mark as visited', trip_path(trip), :method => :put, :remote => :true, class: 'btn btn-default btn-xs' %></li>
       <% end %>
     <% end %>
   </ul>
-  <%= link_to 'Add desired destination', new_location_path, class: 'btn btn-primary' %>
+  <%= link_to 'Add desired trip', new_trip_path, class: 'btn btn-primary' %>
 </div>
 
 
 <div class="visited col-md-4">
   <h3>Places I have gone:</h3>
   <ul>
-    <% @locations.each do |location| %>
-      <% if location.visited %>
-        <li><%= link_to location.country, location_path(location) %> </li>
+    <% @trips.each do |trip| %>
+      <% if trip.visited %>
+        <li><%= link_to trip.name, trip_path(trip) %> </li>
       <% end %>
     <% end %>
   </ul>

@@ -1,14 +1,16 @@
 require 'spec_helper'
 
-feature 'locations' do
+feature 'trips' do
 
   before do
+    @cuba = create(:country)
+    @mexico = create(:country, name: 'Mexico')
     create_and_signin_user(ENV['TEST_PASS'])
   end
 
-  scenario 'user can add a desired destination' do
+  scenario 'user can add a desired trip' do
     visit root_path
-    click_on 'Add desired destination'
+    click_on 'Add desired trip'
     fill_in 'Country', with: 'Cuba'
     click_on 'Add'
     within('.desired') do
@@ -16,23 +18,23 @@ feature 'locations' do
     end
   end
 
-  scenario 'user can go to show page for each destination' do
-    create_location
+  scenario 'user can go to show page for each trip' do
+    create_trip(@cuba)
     visit root_path
     click_on 'Cuba'
     expect(page).to have_content 'Cuba'
   end
 
-  scenario 'user can remove a destination from the list' do
-    create_location
+  scenario 'user can remove a trip from the list' do
+    create_trip(@cuba)
     visit root_path
     click_on 'Cuba'
-    click_on 'Delete this destination'
+    click_on 'Delete this trip'
     expect(page).to_not have_content 'Cuba'
   end
 
-  scenario 'user can mark a destination as visited and they will see it under the visited column' do
-    create_location
+  scenario 'user can mark a trip as visited and they will see it under the visited column' do
+    create_trip(@cuba)
     visit root_path
     click_on 'Mark as visited'
     within('.visited') do
@@ -41,5 +43,10 @@ feature 'locations' do
     within('.desired') do
       expect(page).to_not have_content 'Cuba'
     end
+  end
+
+  scenario 'user will only see their own trips, not other peoples' do
+
+  
   end
 end

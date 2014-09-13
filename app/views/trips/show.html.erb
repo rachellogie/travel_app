@@ -1,0 +1,5 @@
+<h1>This is the show page for <%= @trip.name %></h1>
+<p>visited: <%= @trip.visited %></p>
+
+
+<%= link_to 'Delete this trip', trip_path(@trip), method: :delete %>

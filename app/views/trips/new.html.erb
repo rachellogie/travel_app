@@ -1,9 +1,9 @@
 <h1>Please enter a place you would like to visit: </h1>
 
-<%= form_for @location do |f| %>
+<%= form_for @trip do |f| %>
 
   <%= f.label :country %>
-  <%= f.autocomplete_field :country, autocomplete_country_name_locations_path %>
+  <%= f.autocomplete_field :country, autocomplete_country_name_trips_path %>
 
   <%= f.submit 'Add'%>
 

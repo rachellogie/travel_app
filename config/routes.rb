@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'homepage#index'
 
-  resources :locations do
+  resources :trips do
     get :autocomplete_country_name, :on => :collection
   end
 

@@ -12691,24 +12691,24 @@ var tabs = $.widget( "ui.tabs", {
 		var rhash = /#.*$/;
 
 		return function( anchor ) {
-			var anchorUrl, locationUrl;
+			var anchorUrl, tripUrl;
 
 			// support: IE7
 			// IE7 doesn't normalize the href property when set via script (#9317)
 			anchor = anchor.cloneNode( false );
 
 			anchorUrl = anchor.href.replace( rhash, "" );
-			locationUrl = location.href.replace( rhash, "" );
+			tripUrl = trip.href.replace( rhash, "" );
 
 			// decoding may throw an error if the URL isn't UTF-8 (#9518)
 			try {
 				anchorUrl = decodeURIComponent( anchorUrl );
 			} catch ( error ) {}
 			try {
-				locationUrl = decodeURIComponent( locationUrl );
+				tripUrl = decodeURIComponent( tripUrl );
 			} catch ( error ) {}
 
-			return anchor.hash.length > 1 && anchorUrl === locationUrl;
+			return anchor.hash.length > 1 && anchorUrl === tripUrl;
 		};
 	})(),
 
@@ -12752,13 +12752,13 @@ var tabs = $.widget( "ui.tabs", {
 	_initialActive: function() {
 		var active = this.options.active,
 			collapsible = this.options.collapsible,
-			locationHash = location.hash.substring( 1 );
+			tripHash = trip.hash.substring( 1 );
 
 		if ( active === null ) {
 			// check the fragment identifier in the URL
-			if ( locationHash ) {
+			if ( tripHash ) {
 				this.tabs.each(function( i, tab ) {
-					if ( $( tab ).attr( "aria-controls" ) === locationHash ) {
+					if ( $( tab ).attr( "aria-controls" ) === tripHash ) {
 						active = i;
 						return false;
 					}
