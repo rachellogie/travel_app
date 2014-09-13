@@ -7,7 +7,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.trips.new(trip_params)
     @trip.name = params[:trip][:country]
     if @trip.save!
       redirect_to root_path

@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips.all
   end
 end

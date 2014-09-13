@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
+  has_many :trips
+  has_many :countries, through: :trips
+
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
