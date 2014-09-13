@@ -1,6 +1,6 @@
 
 <div class="desired col-md-4 col-md-offset-2">
-  <h3>Places I want to visit:</h3>
+  <h3>Places I want to go:</h3>
   <ul>
     <% @locations.each do |location| %>
       <% unless location.visited %>
@@ -13,7 +13,7 @@
 
 
 <div class="visited col-md-4">
-  <h3>Places I have visited:</h3>
+  <h3>Places I have gone:</h3>
   <ul>
     <% @locations.each do |location| %>
       <% if location.visited %>

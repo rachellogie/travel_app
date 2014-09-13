@@ -10,20 +10,21 @@
 
 <div class="container">
   <header>
-    <h1 class="logo">Travel App</h1>
-    <nav>
-      <ul>
+
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Travel App</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Register', new_user_registration_path %></li>
-          <li><%= link_to 'Log in', new_user_session_path %></li>
-          <li><%= link_to 'Log in with Google', user_omniauth_authorize_path(:google_oauth2) %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
         <% end %>
       </ul>
     </nav>
-    <div><%= flash[:notice] %></div>
+
   </header>
+
+  <div><%= flash[:notice] %></div>
   <%= yield %>
 </div>
 

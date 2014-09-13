@@ -2,6 +2,10 @@ require 'spec_helper'
 
 feature 'locations' do
 
+  before do
+    create_and_signin_user(ENV['TEST_PASS'])
+  end
+
   scenario 'user can add a desired destination' do
     visit root_path
     click_on 'Add desired destination'
