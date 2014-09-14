@@ -6,6 +6,14 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
   def create
     @trip = current_user.trips.new(trip_params)
     @trip.name = params[:trip][:country]
@@ -16,15 +24,17 @@ class TripsController < ApplicationController
     end
   end
 
-  def show
-    @trip = Trip.find(params[:id])
-  end
-
   def update
     @trip = Trip.find(params[:id])
-    @trip.update(visited: true)
+    #if params[:trip] is necessary or it blows up on the ajax call
+    if params[:trip]
+      @trip.update_attributes(trip_params)
+    else
+      @trip.update_attributes(visited: true)
+    end
+
     respond_to do |format|
-      format.html {redirect_to :back}
+      format.html {redirect_to trip_path(@trip)}
       format.js {}
     end
   end
@@ -37,6 +47,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:country_id)
+    params.require(:trip).permit(:country_id, :date)
   end
 end

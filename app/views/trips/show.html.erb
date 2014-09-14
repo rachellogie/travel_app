@@ -1,5 +1,13 @@
 <h1>This is the show page for <%= @trip.name %></h1>
 <p>visited: <%= @trip.visited %></p>
+<% if @trip.date.present? %>
+  <p>Date visited: <%= @trip.date.strftime('%B %d, %Y') %></p>
+<% end %>
 
+<div>
+  <%= link_to "Edit details about your #{@trip.name} trip", edit_trip_path(@trip) %>
+</div>
 
-<%= link_to 'Delete this trip', trip_path(@trip), method: :delete %>
+<div>
+  <%= link_to 'Delete this trip', trip_path(@trip), method: :delete %>
+</div>

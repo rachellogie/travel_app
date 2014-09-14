@@ -27,9 +27,13 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.4.1'
   gem 'dotenv-rails', '~> 0.11.1'
+  gem 'pry', '~> 0.9.12.6'
+  gem 'pry-debugger', '~> 0.2.3'
+  gem 'selenium-webdriver', '~> 2.42.0'
 end
 
 group :test do
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'factory_girl', '~> 4.4.0'
 end
 

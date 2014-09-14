@@ -1,0 +1,11 @@
+<h3>Edit the details of your <%= @trip.name %> trip</h3>
+
+<%= form_for @trip do |f| %>
+
+  <%= f.label :date, 'Date visited' %>
+  <%= f.date_field :date %>
+
+  <%= f.submit %>
+
+<% end  %>
+
