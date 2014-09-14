@@ -4,7 +4,7 @@
   <ul>
     <% @trips.each do |trip| %>
       <% unless trip.visited %>
-        <li class="<%= trip.name %>"><%= link_to trip.name, trip_path(trip) %>   <%= link_to 'Mark as visited', trip_path(trip), :method => :put, :remote => :true, class: 'btn btn-default btn-xs' %></li>
+        <li class="<%= classify(trip.name) %>"><%= link_to trip.name, trip_path(trip) %>   <%= link_to 'Mark as visited', trip_path(trip), :method => :put, :remote => :true, class: 'btn btn-default btn-xs' %></li>
       <% end %>
     <% end %>
   </ul>
