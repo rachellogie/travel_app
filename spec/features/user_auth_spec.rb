@@ -27,7 +27,7 @@ feature 'user auth' do
     click_link 'Sign out'
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Sign in'
-
+    expect(page).to have_content 'Signed out successfully.'
   end
 
   scenario 'user must sign in before being allowed to do anything' do
@@ -39,5 +39,14 @@ feature 'user auth' do
     create_and_signin_user(ENV['TEST_PASS'])
     visit root_path
     expect(page).to have_content 'Places I want to go'
+  end
+
+  scenario 'user can see error messages if they sign in incorrectly' do
+    create_and_signin_user(ENV['TEST_PASS'])
+    click_on 'Sign out'
+    fill_in 'Email', with: 'keri@example.com'
+    fill_in 'Password', with: '123'
+    click_on 'Sign in'
+    expect(page).to have_content 'Invalid email or password'
   end
 end
