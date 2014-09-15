@@ -43,6 +43,7 @@ gem 'devise', '~> 3.3.0'
 
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2', '~> 0.2.5'
+gem 'carrierwave', '~> 0.10.0'
 
 group :staging, :production do
   gem 'rails_12factor', '~> 0.0.2'

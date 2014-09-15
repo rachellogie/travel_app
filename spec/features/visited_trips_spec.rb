@@ -16,4 +16,14 @@ feature 'Visited Trips' do
     click_on 'Update'
     expect(page).to have_content 6.months.ago.strftime('%B %d, %Y')
   end
+
+  scenario 'user can upload photos to a visited trip' do
+    visit root_path
+    click_on 'Cuba'
+    click_on 'Add photos for this trip'
+    attach_file 'File', File.join(Rails.root, 'spec/fixtures/dubrovnik.jpg')
+    click_button 'Upload'
+    expect(page).to have_content 'File successfully uploaded!'
+    expect(page).to have_css('img')
+  end
 end

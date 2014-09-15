@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :trips do
     get :autocomplete_country_name, :on => :collection
+    resources :photos, only: [:new, :create]
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }

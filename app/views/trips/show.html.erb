@@ -9,5 +9,14 @@
 </div>
 
 <div>
+  <% unless @trip.photos.empty? %>
+    <% @trip.photos.all.each do |photo| %>
+      <%= image_tag(photo.file, size: "200x200") %>
+    <% end %>
+  <% end %>
+  <%= link_to 'Add photos for this trip', new_trip_photo_path(@trip) %>
+</div>
+
+<div>
   <%= link_to 'Delete this trip', trip_path(@trip), method: :delete %>
 </div>
